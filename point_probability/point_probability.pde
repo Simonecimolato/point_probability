@@ -1,5 +1,6 @@
 int countsx = 0;
 int countdx = 0;
+int perc = 75; //probability of finding the dot on the left side
 
 void setup() {
   size(800, 800);
@@ -15,7 +16,7 @@ void draw() {
   int i = 0;
   while (i<1000) {
     int side = round(random(1, 100));
-    if (side > 49) {
+    if (side <= perc) {
       point(random(0, width/2), random(0, height));
       countsx++;
     } else {
@@ -24,5 +25,5 @@ void draw() {
     }
     i++;
   }
-  println(countsx, countdx);
+  println(countsx, countdx, (float)countsx/countdx);
 }
